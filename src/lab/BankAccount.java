@@ -12,8 +12,12 @@ public class BankAccount {
      * @throws IllegalArgumentException ถ้า amount <= 0
      */
     public void withdraw(int amount) {
-        // TODO: amount <= 0  -> throw IllegalArgumentException  (input ภายนอก = exception)
-        // TODO: assert amount <= balance                        (เงื่อนไขภายใน = assert)
-        // TODO: balance ลดลงเท่ากับ amount
+        if (amount <= 0) {
+            throw new IllegalArgumentException("amount must be greater than 0");
+        }
+
+        assert amount <= balance : "Insufficient balance";
+
+        balance -= amount;
     }
 }
